@@ -57,3 +57,6 @@ PATCH, `/projects/:id`, Atualiza um projeto
 
 ## Amostra do funcionamento
 https://www.loom.com/share/1bf9f426dcbc409e8478a5094d329c88?sid=3c139a22-e908-456e-b848-65bf51fc9b12
+
+## Preview sem backend
+https://kanban-noturno-git-main-emjs-projects-fd31054b.vercel.app/
