@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/columnmanager.tsx","./src/components/kanbanboard.tsx","./src/components/projectcard.tsx","./src/components/projectform.tsx","./src/services/api.ts","./src/types/project.ts"],"version":"5.8.3"}

@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateProjectDto } from './dto/create-project.dto';
-import { UpdateProjectDto } from './dto/update-project.dto';
+import { CreateProjectDto } from './dto/create-project-dto';
+import { UpdateProjectDto } from './dto/update-project-dto';
 import { Project, ProjectStatus } from './entities/project.entity';
 import { v4 as uuidv4 } from 'uuid';
 

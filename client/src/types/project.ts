@@ -3,7 +3,7 @@ export interface Project {
   name: string;
   description: string;
   responsible: string;
-  status: string; // Agora pode ser qualquer string (nome da coluna)
+  status: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -40,7 +40,6 @@ export interface UpdateColumnDto {
   order?: number;
 }
 
-// Cores predefinidas
 export const ColumnColors = {
   GRAY: 'gray',
   RED: 'red',

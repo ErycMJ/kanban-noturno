@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, AlertCircle, X, Kanban } from 'lucide-react';
+import { Plus, AlertCircle, X } from 'lucide-react';
 import { projectsApi } from './services/api';
 import type { Project, CreateProjectDto, Column } from './types/project';
 import KanbanBoard from './components/KanbanBoard';
@@ -12,7 +12,6 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
 
-  // Carregar projetos ao inicializar
   useEffect(() => {
     loadProjects();
     loadColumns();
@@ -23,13 +22,12 @@ function App() {
       setLoading(true);
       setError(null);
       
-      // Buscar sempre da API
       const data = await projectsApi.getAll();
       setProjects(data);
       
     } catch (err) {
       console.error('Erro ao carregar projetos da API:', err);
-      setError('Não foi possível conectar com a API. Verifique se o servidor está rodando.');
+      setError('Não foi possível conectar com a API. Verifique se o servidor está rodando na porta 3000.');
       setProjects([]);
     } finally {
       setLoading(false);
@@ -37,14 +35,12 @@ function App() {
   };
 
   const loadColumns = () => {
-    // Colunas padrão sincronizadas com o backend
     const defaultColumns: Column[] = [
       { id: 'pending', name: 'A Fazer', color: 'gray', order: 1 },
       { id: 'in_progress', name: 'Em Progresso', color: 'blue', order: 2 },
       { id: 'completed', name: 'Finalizado', color: 'green', order: 3 }
     ];
     
-    // Tentar carregar do localStorage
     const savedColumns = localStorage.getItem('kanban-columns');
     if (savedColumns) {
       setColumns(JSON.parse(savedColumns));
@@ -118,28 +114,15 @@ function App() {
     });
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-          <h2 className="text-xl font-semibold text-gray-700 mb-2">Carregando Projetos</h2>
-          <p className="text-gray-500">Aguarde um momento...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
+    <div className="min-h-screen bg-sky-600">
+      <header className="bg-black shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Kanban className="h-8 w-8 text-blue-600 mr-3" />
+              <img src="/logo.png" className="h-8 w-8 text-blue-600 mr-3" alt="Kanban Icon" />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Sistema Kanban</h1>
+                <h1 className="text-2xl font-bold text-sky-600">Sistema Kanban</h1>
               </div>
             </div>
             
@@ -154,7 +137,6 @@ function App() {
         </div>
       </header>
 
-      {/* Error Alert */}
       {error && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="bg-red-50 border border-red-200 rounded-md p-4 flex items-center justify-between">
@@ -172,7 +154,6 @@ function App() {
         </div>
       )}
 
-      {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <KanbanBoard
           projects={projects}
@@ -185,7 +166,6 @@ function App() {
         />
       </main>
 
-      {/* Modal para Novo Projeto */}
       {showForm && (
         <ProjectForm
           onSubmit={handleCreateProject}

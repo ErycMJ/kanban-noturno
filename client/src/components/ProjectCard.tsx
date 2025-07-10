@@ -153,7 +153,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         {project.description}
       </p>
       
-      {/* Tag da etapa */}
       {getCurrentColumn() && (
         <div className="mb-3">
           <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getColumnTagColor(getCurrentColumn()!.color)}`}>
