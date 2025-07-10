@@ -50,8 +50,10 @@ npm run dev
 O frontend estará rodando em: http://localhost:5173
 
 ## Endpoints da API
-
 Método, Endpoint, Descrição
 GET, `/projects`, Lista todos os projetos
 POST, `/projects`, Cria um novo projeto
 PATCH, `/projects/:id`, Atualiza um projeto
+
+## Amostra do funcionamento
+https://www.loom.com/share/1bf9f426dcbc409e8478a5094d329c88?sid=3c139a22-e908-456e-b848-65bf51fc9b12

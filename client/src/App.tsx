@@ -114,6 +114,14 @@ function App() {
     });
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <p className="text-gray-500">Aguarde um momento...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-sky-600">
       <header className="bg-black shadow-sm border-b border-gray-200">
