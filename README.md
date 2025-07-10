@@ -51,8 +51,11 @@ O frontend estará rodando em: http://localhost:5173
 
 ## Endpoints da API
 Método, Endpoint, Descrição
+
 GET, `/projects`, Lista todos os projetos
+
 POST, `/projects`, Cria um novo projeto
+
 PATCH, `/projects/:id`, Atualiza um projeto
 
 ## Amostra do funcionamento
